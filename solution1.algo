@@ -1,0 +1,49 @@
+ALGORITHM solution1(sum_distinct_elements)
+VAR
+    set1 : ARRAY_OF INTEGER[];
+    set2 : ARRAY_OF INTEGER[];
+    s1,s2,i,j,sum : INTEGER;
+BEGIN
+//    Initialize sum = 0. 
+     sum:=0;
+// the vice versa to add elements from the second set.
+     
+        Write("enter number of many elements of set1"); 
+        Read(s1);
+
+     FOR i FROM 0 TO s1-1 STEP 1  DO
+
+        Write("enter your set1 elements");
+        Read(set1[i]);
+     END_FOR
+
+        Write("enter number of many elements of set2"); 
+        Read(s2);
+
+     FOR j FROM 0 TO s2-1 STEP 1  DO
+        Write("enter your set2 elements");
+        Read(set2[j]);
+     END_FOR
+// Compare each element of set1 one with the second set2 and 
+// if element is not present then add that element to sum. 
+    FOR i FROM 0 TO set1.lenght DO
+        FOR j FROM 0 TO set2.lenght  DO
+            if(set1[i]<>set2[j]) then 
+            sum:=sum+set1[i];
+            END_IF
+        END_FOR
+    END_FOR
+
+    // same think applicated to seconde set2 inorder to compare it with set1
+    
+    FOR j FROM 0 TO set2.lenght DO
+        FOR i FROM 0 TO set1.lenght  DO
+            if(set1[i]<>set2[j]) then 
+            sum:=sum+set1[j];
+            END_IF     
+       END_FOR
+    END_FOR   
+       
+        Write("summe of distincts elements of set1 & set2 is:", sum);
+        
+END
