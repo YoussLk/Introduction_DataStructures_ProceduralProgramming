@@ -1,0 +1,68 @@
+// ************Define the dot_product procedure**************
+
+PROCEDURE dot_product(v1: ARRAY_OF FLOAT[], v2: ARRAY_OF FLOAT[])
+VAR
+// declaration of local variables
+    ps: FLOAT
+    i: INTEGER
+BEGIN
+    ps := 0; //initializing ps
+
+    FOR i := 0 TO lenght(v1) - 1 DO
+        ps := ps + v1[i] * v2[i];  //dot scalare calculate
+    END FOR
+
+    Write("The dot product of v1 and v2 is ", ps, "."); // output resultt
+END
+// ************Define the check_orthogonality procedure***********
+PROCEDURE check_orthogonality(n: INTEGER)
+VAR
+    i, j: INTEGER;
+    v1, v2: ARRAY_OF FLOAT[];  //arrays to hold the vectors
+    ps: FLOAT;  //// scalar product
+BEGIN
+    FOR i := 1 TO n DO
+        Write("Enter the first vector v1 values: ");
+        Read(v1[i]);  // read first vector from user input
+        Write("Enter the second vector v2 values: ");
+        Read(v2[i]);  // read first vector from user input
+        ps := 0; // init product scalar
+
+        FOR j := 0 TO LENGTH(v1) - 1 DO
+            ps := ps + v1[j] * v2[j];  //calcul product scalar of v1 and v2
+        END FOR
+        // check if dot product is zero (vectors are orthogonal)
+        IF (ps := 0) THEN   
+            Write("v1 and v2 are orthogonal.");
+        ELSE
+            Write("v1 and v2 are not orthogonal.");
+        END IF
+    END FOR
+END
+// ************Define the check_orthogonality procedure using dot product function***********
+PROCEDURE check_orthogonality_with_function(n: INTEGER)
+VAR
+    i, j: INTEGER;
+    v1, v2: ARRAY_OF FLOAT[];  // arrays to hold the vectors
+BEGIN
+    FOR i := 1 TO n DO
+        Write("Enter the first vector v1 values: ");
+        Read(v1[i]);// read first vector from user input
+        Write("Enter the second vector v2 values: ");
+        Read(v2[i]);// read second vector from user input
+
+        IF (dot_product(v1, v2) := 0) THEN // Check if the dot product is zero, which means the vectors are orthogonal
+            Write("v1 and v2 are orthogonal.");
+        ELSE
+            Write("v1 and v2 are not orthogonal.");
+        END_IF
+          
+    END FOR
+END
+// **********************main Algorithm*************************
+BEGIN
+    Write("Enter the number of pairs of vectors to check: ");
+    Read(n);  // read number of pairs of vectors to check from user input
+    check_orthogonality(n);// call procedure to check orthogonality using dot product procedure
+    check_orthogonality_with_function(n);// call procedure to check orthogonality using dot product function
+END.
