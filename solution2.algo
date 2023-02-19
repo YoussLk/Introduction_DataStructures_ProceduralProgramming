@@ -60,6 +60,10 @@ BEGIN
     END FOR
 END
 // **********************main Algorithm*************************
+ALGORITHM Dot_Product
+VAR
+    n:INTEGER;  // Global variable
+
 BEGIN
     Write("Enter the number of pairs of vectors to check: ");
     Read(n);  // read number of pairs of vectors to check from user input
